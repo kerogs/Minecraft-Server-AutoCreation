@@ -14,7 +14,7 @@ var (
 )
 
 const (
-	AppVersion string = "1.0.0"
+	AppVersion string = "1.0.2"
 	spigotUrl  string = "https://getbukkit.org/download/spigot"
 )
 
