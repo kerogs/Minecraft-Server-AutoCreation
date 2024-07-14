@@ -22,3 +22,5 @@ creation and installation of a fully automated minecraft server.
 
 ## Known issues
 - The program may fail to retrieve the list of versions (for X reason) and then close itself. Don't panic, just restart the program as many times as necessary (usually 1-3 times maximum).
+
+![preview image](assets/img/preview.png)
