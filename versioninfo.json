@@ -1,42 +1,41 @@
 {
-    "FixedFileInfo": {
-      "FileVersion": {
-        "Major": 1,
-        "Minor": 0,
-        "Patch": 2,
-        "Build": 3
-      },
-      "ProductVersion": {
-        "Major": 1,
-        "Minor": 0,
-        "Patch": 2,
-        "Build": 3
-      },
-      "FileFlagsMask": "3f",
-      "FileFlags": "00",
-      "FileOS": "040004",
-      "FileType": "01",
-      "FileSubtype": "00"
+  "FixedFileInfo": {
+    "FileVersion": {
+      "Major": 1,
+      "Minor": 0,
+      "Patch": 2,
+      "Build": 3
     },
-    "StringFileInfo": {
-      "Comments": "",
-      "CompanyName": "kerogs",
-      "FileDescription": "Minecraft-Server-AutoCreation",
-      "FileVersion": "1.0.2.3",
-      "InternalName": "myapp",
-      "LegalCopyright": "© Kerogs Infinite. All rights reserved.",
-      "LegalTrademarks": "",
-      "OriginalFilename": "msac.exe",
-      "PrivateBuild": "",
-      "ProductName": "msac",
-      "ProductVersion": "1.0.2.3",
-      "SpecialBuild": ""
+    "ProductVersion": {
+      "Major": 1,
+      "Minor": 0,
+      "Patch": 2,
+      "Build": 3
     },
-    "VarFileInfo": {
-      "Translation": {
-        "LangID": "0409",
-        "CharsetID": "04B0"
-      }
+    "FileFlagsMask": "3f",
+    "FileFlags": "00",
+    "FileOS": "040004",
+    "FileType": "01",
+    "FileSubtype": "00"
+  },
+  "StringFileInfo": {
+    "Comments": "",
+    "CompanyName": "Kerogs Infinite",
+    "FileDescription": "Minecraft-Server-AutoCreation",
+    "FileVersion": "1.0.2-3",
+    "InternalName": "msac",
+    "LegalCopyright": "© Kerogs Infinite. All rights reserved.",
+    "LegalTrademarks": "",
+    "OriginalFilename": "msac.exe",
+    "PrivateBuild": "",
+    "ProductName": "msac",
+    "ProductVersion": "1.0.2-3",
+    "SpecialBuild": ""
+  },
+  "VarFileInfo": {
+    "Translation": {
+      "LangID": "0409",
+      "CharsetID": "04B0"
     }
   }
-  
+}
