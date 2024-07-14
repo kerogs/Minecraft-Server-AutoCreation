@@ -11,8 +11,17 @@ import (
     "github.com/PuerkitoBio/goquery"
 )
 
+// Spigot makes an HTTP GET request to the given spigotUrl and retrieves the list of versions
+// from the response. It returns a slice of strings representing the versions and an error
+// if any occurred.
+//
+// Parameters:
+// - spigotUrl: a string representing the URL to make the GET request to.
+//
+// Returns:
+// - []string: a slice of strings representing the versions retrieved from the response.
+// - error: an error if any occurred during the HTTP request or parsing the response.
 func Spigot(spigotUrl string) ([]string, error) {
-    // Faites la requête HTTP pour obtenir le contenu de la page
     res, err := http.Get(spigotUrl)
     if err != nil {
         return nil, err
@@ -23,49 +32,43 @@ func Spigot(spigotUrl string) ([]string, error) {
         return nil, fmt.Errorf("status error: %d %s", res.StatusCode, res.Status)
     }
 
-    // Chargez le document HTML
     doc, err := goquery.NewDocumentFromReader(res.Body)
     if err != nil {
         return nil, err
     }
 
-    // Créez un tableau pour stocker les valeurs des balises h2
     var versionList []string
 
-    // Utilisez une sélection CSS pour trouver toutes les balises h2
     doc.Find("h2").Each(func(i int, s *goquery.Selection) {
         version := s.Text()
         versionList = append(versionList, version)
     })
 
-    // Retourne le tableau des versions
     return versionList, nil
 }
 
+// SpigotDownload downloads a file from the provided URL and saves it locally.
+//
+// It takes the spigotUrlJar string as input and returns an error if any.
 func SpigotDownload(spigotUrlJar string) error {
-    // Effectuer la requête HTTP pour télécharger le fichier
     resp, err := http.Get(spigotUrlJar)
     if err != nil {
         return err
     }
     defer resp.Body.Close()
 
-    // Vérifier le code de statut HTTP
     if resp.StatusCode != http.StatusOK {
         return fmt.Errorf("statut HTTP incorrect: %s", resp.Status)
     }
 
-    // Extraire le nom du fichier du chemin d'accès URL
     filename := filepath.Base(spigotUrlJar)
 
-    // Créer un fichier local pour enregistrer le contenu téléchargé
     out, err := os.Create(filename)
     if err != nil {
         return err
     }
     defer out.Close()
 
-    // Copier le contenu du corps de la réponse HTTP vers le fichier local
     _, err = io.Copy(out, resp.Body)
     if err != nil {
         return err

@@ -7,12 +7,13 @@ import (
 	"github.com/kerogs/KerogsGo/colors"
 )
 
+// HelloShow prints the Minecraft-Server-AutoCreation version to the console in red color.
+//
+// Parameters:
+// - version: the version of the Minecraft-Server-AutoCreation application.
+//
+// Return type: None.
 func HelloShow(version string) {
 	cli.AsciiStart()
-	fmt.Print(colors.Yellow)
-	fmt.Println("#################################")
-	fmt.Println("# Minecraft-Server-AutoCreation #")
-	fmt.Println("# By Kerogs              v"+version+" #")
-	fmt.Println("#################################")
-	fmt.Print(colors.Reset+"\n")
+	fmt.Println(colors.Red + "Minecraft-Server-AutoCreation v" + version + colors.Reset)
 }
