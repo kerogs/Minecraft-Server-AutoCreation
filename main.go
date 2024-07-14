@@ -14,7 +14,7 @@ var (
 )
 
 const (
-	AppVersion string = "1.0.2"
+	AppVersion string = "1.0.3"
 	spigotUrl  string = "https://getbukkit.org/download/spigot"
 )
 
@@ -33,26 +33,31 @@ func main() {
 	// ? Get Spigot versions
 	fmt.Println(colors.Green + "Connect to the following url : " + spigotUrl + colors.Reset)
 
-	versions, err := cli.Spigot(spigotUrl)
-	if err != nil {
-		log.Fatal(err)
-		fmt.Println(colors.Red + "ErrorDetected timePause activate (bypass Spigot protecction)")
-		time.Sleep(5000)
+	var versions []string // Déclarez versions comme une slice de chaînes
+	var err error
+
+	for {
+		// Assumez que cli.Spigot(spigotUrl) retourne []string
+		versions, err = cli.Spigot(spigotUrl)
+		if err != nil {
+			log.Println(err) // Utilisez log.Println pour ne pas arrêter le programme
+			fmt.Println(colors.Red+"Error connecting to server. Retry in 3.5 seconds" + colors.Reset)
+			time.Sleep(3500 * time.Millisecond)
+		} else {
+			break
+		}
 	}
 
-	fmt.Printf("\033[1A\033[K")
-
+	// Maintenant, versions est []string, vous pouvez l'utiliser comme tel
 	versionCount := 0
 	versionTotal := len(versions)
 	for _, version := range versions {
-
 		if versionCount == versionTotal-1 {
 			fmt.Println(version)
 		} else {
 			fmt.Print(version + ", ")
 		}
 		versionCount++
-
 	}
 
 	// ? Ask version to download
@@ -69,7 +74,7 @@ func main() {
 	fmt.Println("File start.bat create")
 
 	// ? Start bat
-	fmt.Println(colors.Orange + "WARNING : If you have an error, make sure you have the correct version of java installed on your machine!"+colors.Reset)
+	fmt.Println(colors.Orange + "WARNING : If you have an error, make sure you have the correct version of java installed on your machine!" + colors.Reset)
 	fmt.Println("First launch...")
 
 	cli.StartBat(versionChoose, AppVersion)
