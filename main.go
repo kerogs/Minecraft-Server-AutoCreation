@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"log"
-	"msac/cli"
 	"time"
 
 	"github.com/kerogs/KerogsGo/colors"
+
+	"github.com/kerogs/Minecraft-Server-AutoCreation/cli"
 )
 
 var (
@@ -41,7 +42,7 @@ func main() {
 		versions, err = cli.Spigot(spigotUrl)
 		if err != nil {
 			log.Println(err) // Utilisez log.Println pour ne pas arrêter le programme
-			fmt.Println(colors.Red+"Error connecting to server. Retry in 3.5 seconds" + colors.Reset)
+			fmt.Println(colors.Red + "Error connecting to server. Retry in 3.5 seconds" + colors.Reset)
 			time.Sleep(3500 * time.Millisecond)
 		} else {
 			break
