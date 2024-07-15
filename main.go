@@ -8,6 +8,7 @@ import (
 	"github.com/kerogs/KerogsGo/colors"
 
 	"github.com/kerogs/Minecraft-Server-AutoCreation/cli"
+	"github.com/kerogs/Minecraft-Server-AutoCreation/helper"
 )
 
 var (
@@ -15,7 +16,7 @@ var (
 )
 
 const (
-	AppVersion string = "1.1.1"
+	AppVersion string = "1.3.1"
 	spigotUrl  string = "https://getbukkit.org/download/spigot"
 )
 
@@ -30,6 +31,14 @@ const (
 // No return values.
 func main() {
 	cli.HelloShow(AppVersion)
+
+	// ? Check if JAVA installed
+	version, errs := cli.Java()
+	if errs != nil {
+		helper.StopProgram(errs, "Java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/#jdk22-windows")
+	} else {
+		fmt.Println("Java version:", version + "\n Java installed, the server can be created")
+	}
 
 	// ? Get Spigot versions
 	fmt.Println(colors.Green + "Connect to the following url : " + spigotUrl + colors.Reset)
