@@ -28,7 +28,7 @@ func PrepareStart(versionSpigot string, versionApp string) {
 
 	fileContent := "@echo off \n"
 	fileContent += "title Minecraft Spigot version " + versionSpigot + " - github.com/kerogs \n"
-	fileContent += "java -Xmx1G -jar spigot-" + versionSpigot + ".jar nogui\n"
+	fileContent += "java -Xmx1G -DIReallyKnowWhatIAmDoingISwear -jar spigot-" + versionSpigot + ".jar nogui\n"
 	fileContent += "echo #################################\n"
 	fileContent += "echo # Minecraft-Server-AutoCreation #\n"
 	fileContent += "echo # By Kerogs              v" + versionApp + " #\n"
