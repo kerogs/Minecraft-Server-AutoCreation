@@ -50,8 +50,11 @@ Language used :
 
 ## Future updates to work on
 
-- Choose between Spigot, Bukkit or vanilla
+- Choose between Spigot or vanilla
 - repair known issues
+- auto download lastest java if not installés
+- auto update java if deprecated
+- propose when server is installed if user want turn off online mod
 
 ## Known issues
 
