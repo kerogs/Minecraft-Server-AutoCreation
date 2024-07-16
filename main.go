@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"time"
+	"errors"
 
 	"github.com/kerogs/KerogsGo/colors"
 
@@ -16,7 +17,7 @@ var (
 )
 
 const (
-	AppVersion string = "1.3.1"
+	AppVersion string = "1.2.1"
 	spigotUrl  string = "https://getbukkit.org/download/spigot"
 )
 
@@ -36,6 +37,16 @@ func main() {
 	version, errs := cli.Java()
 	if errs != nil {
 		helper.StopProgram(errs, "Java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/#jdk22-windows")
+
+		fmt.Print(colors.Orange+"Do you want to install Java ? (Y/n) : "+colors.Reset)
+		dljava := ""
+		fmt.Scanln(dljava)
+		
+			// ? DL JAVA or not
+		if(dljava == "Y" || dljava == "y" || dljava == "yes" || dljava == "YES" || dljava == "Yes") {
+		} else{
+			helper.StopProgram(errors.New("Java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/#jdk22-windows"), "You must install Java.")
+		}
 	} else {
 		fmt.Println("Java version:", version + "\n Java installed, the server can be created")
 	}
