@@ -36,7 +36,6 @@ func main() {
 	// ? Check if JAVA installed
 	version, errs := cli.Java()
 	if errs != nil {
-		helper.StopProgram(errs, "Java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/#jdk22-windows")
 
 		fmt.Print(colors.Orange+"Do you want to install Java ? (Y/n) : "+colors.Reset)
 		dljava := ""
@@ -45,7 +44,7 @@ func main() {
 			// ? DL JAVA or not
 		if(dljava == "Y" || dljava == "y" || dljava == "yes" || dljava == "YES" || dljava == "Yes") {
 		} else{
-			helper.StopProgram(errors.New("Java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/#jdk22-windows"), "You must install Java.")
+			helper.StopProgram(errors.New("java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/#jdk22-windows"), "You must install Java.")
 		}
 	} else {
 		fmt.Println("Java version:", version + "\n Java installed, the server can be created")
