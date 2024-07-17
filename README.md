@@ -14,6 +14,9 @@ English | [Français](readme-fr.md)
 
 </div>
 
+> [!NOTE]
+> If you like the program or want to give more visibility to the repository, you can give it a star. Stars will help others show that they can trust our work. 💖
+
 ## Introduction
 
 MSAC (or Minecraft Server AutoCreation for short) is a program for automatically creating minecraft servers under spigot (for plugins). It supports all spigot versions of minecraft.
