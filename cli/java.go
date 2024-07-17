@@ -3,13 +3,11 @@ package cli
 import (
 	"bytes"
 	"errors"
-	"fmt"
 	"os/exec"
 	"regexp"
 )
 
 func Java() (string, error) {
-	fmt.Println("Java verification...")
 	// Command to check the version of Java
 	cmd := exec.Command("java", "-version")
 

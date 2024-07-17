@@ -1,10 +1,10 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"time"
-	"errors"
 
 	"github.com/kerogs/KerogsGo/colors"
 
@@ -35,32 +35,33 @@ func main() {
 
 	// ? Check if JAVA installed
 	version, errs := cli.Java()
+	fmt.Println("Java verification...")
 	if errs != nil {
-
-		fmt.Print(colors.Orange+"Do you want to install Java ? (Y/n) : "+colors.Reset)
 		dljava := ""
-		fmt.Scanln(dljava)
-		
-			// ? DL JAVA or not
-		if(dljava == "Y" || dljava == "y" || dljava == "yes" || dljava == "YES" || dljava == "Yes") {
-		} else{
+		fmt.Println(colors.Red+"java is not installed. Java is required for Minecraft."+colors.Reset)
+		fmt.Print(colors.Orange + "Do you want to install Java ? (Y/n) : " + colors.Reset)
+		fmt.Scanln(&dljava)
+
+		// ? DL JAVA or not
+		if dljava == "Y" || dljava == "y" || dljava == "yes" || dljava == "YES" || dljava == "Yes" || dljava == "" {
+			fmt.Println("Java going to be installed")
+		} else {
 			helper.StopProgram(errors.New("java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/#jdk22-windows"), "You must install Java.")
 		}
 	} else {
-		fmt.Println("Java version:", version + "\n Java installed, the server can be created")
+		fmt.Println("Java installed, the server can be created -> version: " + version)
 	}
 
 	// ? Get Spigot versions
 	fmt.Println(colors.Green + "Connect to the following url : " + spigotUrl + colors.Reset)
 
-	var versions []string // Déclarez versions comme une slice de chaînes
+	var versions []string
 	var err error
 
 	for {
-		// Assumez que cli.Spigot(spigotUrl) retourne []string
 		versions, err = cli.Spigot(spigotUrl)
 		if err != nil {
-			log.Println(err) // Utilisez log.Println pour ne pas arrêter le programme
+			log.Println(err) 
 			fmt.Println(colors.Red + "Error connecting to server. Retry in 3.5 seconds" + colors.Reset)
 			time.Sleep(3500 * time.Millisecond)
 		} else {
@@ -68,7 +69,6 @@ func main() {
 		}
 	}
 
-	// Maintenant, versions est []string, vous pouvez l'utiliser comme tel
 	versionCount := 0
 	versionTotal := len(versions)
 	for _, version := range versions {
