@@ -10,6 +10,7 @@
 <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/kerogs/Minecraft-Server-AutoCreation?style=for-the-badge&labelColor=%2324292e&color=eee">
 <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/kerogs/Minecraft-Server-AutoCreation?style=for-the-badge&labelColor=%2324292e&color=cc0000">
 
+English | [Français](readme-fr.md)
 
 </div>
 
