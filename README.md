@@ -58,7 +58,8 @@ Language used :
 
 ## Known issues
 
-- No known issues
+- Some spigot versions crash at different times, sometimes when the .jar file is downloaded, sometimes when the .bat file is launched, etc....
+<!-- - No known issues -->
 
 ## Know issues (programming section)
 
