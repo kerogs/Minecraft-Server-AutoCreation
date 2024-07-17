@@ -2,8 +2,8 @@ github.com/PuerkitoBio/goquery v1.9.2 h1:4/wZksC3KgkQw7SQgkKotmKljk0M6V8TUvA8Wb4
 github.com/PuerkitoBio/goquery v1.9.2/go.mod h1:GHPCaP0ODyyxqcNoFGYlAprUFH81NuRPd0GX3Zu2Mvk=
 github.com/andybalholm/cascadia v1.3.2 h1:3Xi6Dw5lHF15JtdcmAHD3i1+T8plmv7BQ/nsViSLyss=
 github.com/andybalholm/cascadia v1.3.2/go.mod h1:7gtRlve5FxPPgIgX36uWBX58OdBsSS6lUvCFb+h7KvU=
-github.com/kerogs/KerogsGo v0.0.0-20240714172824-04e0e96f2ca2 h1:GCLu7eAz7hVDgrwaMV/09PnL6BYPOTNYK86+eEU3aJg=
-github.com/kerogs/KerogsGo v0.0.0-20240714172824-04e0e96f2ca2/go.mod h1:exoyYurZhTlLO+NDhHwYvqLNmIVmH2ib5mRhr8Px0n4=
+github.com/kerogs/KerogsGo v1.0.2 h1:hdra/Ajyj/M1HV5AfrjeC1E58wGGgt/cj5sKQqgNi5E=
+github.com/kerogs/KerogsGo v1.0.2/go.mod h1:exoyYurZhTlLO+NDhHwYvqLNmIVmH2ib5mRhr8Px0n4=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
