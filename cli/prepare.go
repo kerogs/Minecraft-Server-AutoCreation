@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	"github.com/kerogs/KerogsGo/colors"
+	"github.com/kerogs/Minecraft-Server-AutoCreation/helper"
 )
 
 // PrepareStart prepares the start.bat file for Minecraft server with the given Spigot version and application version.
@@ -21,7 +22,7 @@ import (
 func PrepareStart(versionSpigot string, versionApp string) {
 	file, err := os.Create("start.bat")
 	if err != nil {
-		fmt.Println("file creation error :", err)
+		helper.StopProgram(err, "file creation error")
 		return
 	}
 	defer file.Close()

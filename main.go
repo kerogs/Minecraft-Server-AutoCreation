@@ -17,8 +17,8 @@ var (
 )
 
 const (
-	AppVersion string = "1.2.1"
-	spigotUrl  string = "https://getbukkit.org/download/spigot"
+	AppVersion       string = "1.2.1"
+	spigotUrlVersion string = "https://getbukkit.org/download/spigot"
 )
 
 // main is the entry point of the program.
@@ -37,31 +37,22 @@ func main() {
 	version, errs := cli.Java()
 	fmt.Println("Java verification...")
 	if errs != nil {
-		dljava := ""
-		fmt.Println(colors.Red+"java is not installed. Java is required for Minecraft."+colors.Reset)
-		fmt.Print(colors.Orange + "Do you want to install Java ? (Y/n) : " + colors.Reset)
-		fmt.Scanln(&dljava)
+		helper.StopProgram(errors.New("java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/"), "You must install Java.")
 
-		// ? DL JAVA or not
-		if dljava == "Y" || dljava == "y" || dljava == "yes" || dljava == "YES" || dljava == "Yes" || dljava == "" {
-			fmt.Println("Java going to be installed")
-		} else {
-			helper.StopProgram(errors.New("java not installed, please install it -> https://www.oracle.com/fr/java/technologies/downloads/#jdk22-windows"), "You must install Java.")
-		}
 	} else {
-		fmt.Println("Java installed, the server can be created -> version: " + version)
+		fmt.Println("Java installed, the server can be created -> JAVA version: " + version)
 	}
 
 	// ? Get Spigot versions
-	fmt.Println(colors.Green + "Connect to the following url : " + spigotUrl + colors.Reset)
+	fmt.Println(colors.Green + "Connect to the following url : " + spigotUrlVersion + colors.Reset)
 
 	var versions []string
 	var err error
 
 	for {
-		versions, err = cli.Spigot(spigotUrl)
+		versions, err = cli.Spigot(spigotUrlVersion)
 		if err != nil {
-			log.Println(err) 
+			log.Println(err)
 			fmt.Println(colors.Red + "Error connecting to server. Retry in 3.5 seconds" + colors.Reset)
 			time.Sleep(3500 * time.Millisecond)
 		} else {
@@ -86,7 +77,10 @@ func main() {
 
 	// ? Download server jar
 	fmt.Println("Try download server jar -> https://download.getbukkit.org/spigot/spigot-" + colors.Magenta + versionChoose + colors.Reset + ".jar")
-	cli.SpigotDownload("https://download.getbukkit.org/spigot/spigot-" + versionChoose + ".jar")
+	httperr := cli.SpigotDownload("https://download.getbukkit.org/spigot/spigot-" + versionChoose + ".jar")
+	if httperr != nil{
+		helper.StopProgram(errs, "Error downloading server jar -> https://download.getbukkit.org/spigot/spigot-"+versionChoose+".jar")
+	}
 	fmt.Println(colors.Green + "Download completed successfully" + colors.Reset)
 
 	// ? Prepare server

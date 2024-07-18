@@ -2,13 +2,12 @@ package cli
 
 import (
 	"fmt"
-    "net/http"
+	"io"
+	"net/http"
 	"os"
 	"path/filepath"
-	"io"
 
-
-    "github.com/PuerkitoBio/goquery"
+	"github.com/PuerkitoBio/goquery"
 )
 
 // Spigot makes an HTTP GET request to the given spigotUrl and retrieves the list of versions
